@@ -1,0 +1,102 @@
+To find the details of current linux distribution
+uname -a
+uname -r
+
+Drawbacks of traditional installations
+traditional - packahes obtained in .tar.gz files
+Done by decompressing file to directory or compiling from source code using - ./configure and makeinstall
+
+ - no dependencies handling
+ - overwrite customized config files
+ - hard to uninstall if it was compiled from source
+
+how to see the installations in tar.gx file
+tar -xvf filename
+
+That's why packages exist
+ - they preserve cofniguration filees
+ - new version add? - pkg.rpm.new.
+ - httpd new version install - the httpd.conf is created as http.conf.rpmnew
+ - Dependencies conisdered duirng installtions
+ - pre and post install scripts can be depoloyed with app
+ - multiple packages can be wraped inside same package for complex installations.
+ -  Easily uninstalled including to excluding dependencies
+
+Linux package types
+1. RPM - Red hat package - used bu red hat ann those based systems as well as SUSE  Ends in .rpm
+2. Debian : ubuntu and other debain used. Ends with .deb
+
+RPM installtion - rpm command used
+rpm -i
+rpm -U --update
+Debian installation - dpkg command is used
+
+Both commands
+1. No dependency handling
+2. cant search package
+3. no metadata offer about pkg
+
+Solution to this:
+Yellow Dog Updater, Modified (yum)
+Advanced Package Tool (APT)
+ZYpper
+
+What is actually a linux package?
+ In Linux distributions, a “package” refers to a compressed file archive containing all
+of the files that come with a particular application. The files are usually stored in the
+package according to their relative installation paths on your system.
+Most packages also contain installation instructions for the OS, as well as a list of
+any other packages that are dependencies (prerequisites required for installation.
+
+Common types of Linux packages include .deb, .rpm, and .tgz.
+Since Linux packages do not usually contain the dependencies necessary to install them, many Linux distributions use
+package managers that automatically read dependencies files and download the packages needed before proceeding with
+the installation. Some examples of package managers are APT, YUM, and Pacman.
+
+
+Red hat's rpm
+Install, validate & search for packages.
+useful options:
+-i install
+-U upgrade
+-e erase
+-q query  -- need to be combined. rpm -qa -  displays all packages installed in system.
+
+        rpm -qa | grep package - whether pkg installed or not
+
+        The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern.
+        https://www.geeksforgeeks.org/grep-command-in-unixlinux/
+
+no dependecy handling
+if tried to install vim
+vim -i vi    - cant installed as requires dependencies
+
+
+Debian's dpkg
+Same role of rpm on debian packages.
+--install
+--remove
+-l - display installed packages.
+
+dpkg -l | grep package     - check whether installed or not
+
+No dependency - it will be installed. eg: htop
+
+Package management systems:
+- solve shortcomings of rpm and dpkg
+- They can search, locate, install pkgs automatically
+- Use repository. A repo , container with packages, with respecyive metadata
+- Each vendor offer its own repository.
+- offered for download in http ot ftp.
+- install using yum install or apt-get install for redhat and Ubuntu respectively.
+- this handles searching, downloading with all it's dependencies.
+
+
+
+Before isntalling use
+apt-get update     -   to update repos.
+configure by editing /etc/apt/sources.list. This file contains source URLs.
+neednt change file if want to use own APT repo
+
+Sources.list   -   contains different types of packages supported by ubuntu(main), unsuppoerted open source
+packages (universe) and paid unsupported pkgs (multiverse). Each have updates or bug fixes.
