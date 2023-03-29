@@ -1,3 +1,106 @@
+#######Learning linux###########
+
+
+Important notes
+
+Sys admin
+1. Dealing eith black screen -- bash scripting
+2. Handle users -- dormant accounts - an account that a user left the company or a user went for long vaccation etc
+3. Backing up important data
+4. PAckage management -- Os upto date?
+
+Sys admin should not be a fire fighter -- find out problems beofre they occur -- performance analysis and system monitoring
+
+Finding help -- huge number of commands -- use man pages.
+
+##Linux flavours###
+
+All linux types have same linux kernel. Differ in software installation and package management.
+
+Most common:
+1. Red Hat
+2. Debian
+3. SUSE
+
+How to choose?
+will software work on it?
+Does vendor supply patches?
+Decent and fast support?
+
+####How to find help?#######
+MAN page
+
+stands for manual
+type: man command
+
+several sections:
+Commands and applications (man1)
+System calls (man2)
+Library calls (man3)
+Drivers (man4)
+Files (man5)
+
+For eg: View docmn of smb.conf file type:
+man 5 smb.conf
+
+But to learn various options use:
+man1 smblclient
+
+Section number is automatically determined by man
+eg: passwd is a command and file at the same time
+So to see the file documentation type:
+man 5 passw
+
+we can use ctrl + b  to move backwards and ctrl + f to move forward in man page.
+
+IF you want to search for a specific man page:
+type:
+man - k
+
+If you want to get multiple man pages
+man -a (commands)
+
+IF you want to search in the title only
+man -af (something)
+A lot of commands provide help if we type command alone without arguments
+or when you follow it by --help or -h flag
+
+If want to know if command is installed or not use
+whatis (command)
+
+AS new software gets installed sometimes it needs to be updated
+Redhat: makewhatis
+Ubuntu,SUSE: mandb
+
+To get more details on list of files.
+ls -ltr
+
+to display contents in file
+cat filename
+more filename
+
+Find the path of a command:
+which (command)
+
+history -- find history
+
+want timestamp in history? Try this...
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+Find the space taken by a file
+du
+
+find the file and directory sizes in current lctn
+du -h --max-depth=1 *
+
+Empty a file withour deleting
+echo > file
+
+Other online documentation
+linux.com
+kernel.org
+Serverfault.com
+
 To find the details of current linux distribution
 uname -a
 uname -r
