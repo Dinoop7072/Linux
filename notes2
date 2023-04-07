@@ -114,6 +114,7 @@ Done by decompressing file to directory or compiling from source code using - ./
  - hard to uninstall if it was compiled from source
 
 how to see the installations in tar.gx file
+tar -czvf dilename.tar.gz /path -- to compress file
 tar -xvf filename
 
 That's why packages exist
